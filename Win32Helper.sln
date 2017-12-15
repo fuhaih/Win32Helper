@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FHWinConsole", "WinConsole\FHWinConsole.csproj", "{5C29D2CC-4A4B-4B1B-BBB6-191804F3479A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32Helper", "Win32Helper\Win32Helper.csproj", "{08FC1DD8-C738-4D0B-9BDC-4980F9DEDEB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C29D2CC-4A4B-4B1B-BBB6-191804F3479A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C29D2CC-4A4B-4B1B-BBB6-191804F3479A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C29D2CC-4A4B-4B1B-BBB6-191804F3479A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C29D2CC-4A4B-4B1B-BBB6-191804F3479A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FC1DD8-C738-4D0B-9BDC-4980F9DEDEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FC1DD8-C738-4D0B-9BDC-4980F9DEDEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FC1DD8-C738-4D0B-9BDC-4980F9DEDEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FC1DD8-C738-4D0B-9BDC-4980F9DEDEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\WinConsole.exe.config
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\WinConsole.exe
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\WinConsole.pdb
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\WinConsole.csprojResolveAssemblyReference.cache
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\WinConsole.exe
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\WinConsole.pdb

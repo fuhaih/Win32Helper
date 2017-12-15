@@ -1,0 +1,13 @@
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\FHWinConsole.exe.config
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\FHWinConsole.csprojResolveAssemblyReference.cache
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\FHWinConsole.ResourceIcon.resources
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\FHWinConsole.csproj.GenerateResource.Cache
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\FHWinConsole.exe
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\FHWinConsole.pdb
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\FHWinConsole.exe
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\obj\Debug\FHWinConsole.pdb
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\Win32Helper.dll
+G:\Fuhai\GitWorkSpace\WinConsole\WinConsole\bin\Debug\Win32Helper.pdb
+G:\Fuhai\GitWorkSpace\Win32Helper\WinConsole\bin\Debug\FHWinConsole.exe.config
+G:\Fuhai\GitWorkSpace\Win32Helper\WinConsole\obj\Debug\FHWinConsole.exe
+G:\Fuhai\GitWorkSpace\Win32Helper\WinConsole\obj\Debug\FHWinConsole.pdb
