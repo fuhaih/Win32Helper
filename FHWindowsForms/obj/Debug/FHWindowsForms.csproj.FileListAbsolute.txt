@@ -1,0 +1,11 @@
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\bin\Debug\FHWindowsForms.exe.config
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\bin\Debug\FHWindowsForms.exe
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\bin\Debug\FHWindowsForms.pdb
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\bin\Debug\Win32Helper.dll
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\bin\Debug\Win32Helper.pdb
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.csprojResolveAssemblyReference.cache
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.Main.resources
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.Properties.Resources.resources
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.csproj.GenerateResource.Cache
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.exe
+G:\Fuhai\GitWorkSpace\Win32Helper\FHWindowsForms\obj\Debug\FHWindowsForms.pdb

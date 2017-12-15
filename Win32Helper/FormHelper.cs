@@ -6,6 +6,9 @@ using System.Windows.Forms;
 using System.Threading;
 namespace Win32Helper
 {
+    /// <summary>
+    /// 可以考虑单例模式，一个程序只能开一个托盘
+    /// </summary>
     public class FormHelper
     {
         static FormHelper()
@@ -15,30 +18,64 @@ namespace Win32Helper
             _NotifyIcon.Text = "tray";
 
             ContextMenu menu = new ContextMenu();
-            MenuItem item = new MenuItem();
-            item.Text = "右键菜单，还没有添加事件";
-            item.Index = 0;
+            MenuItem show = new MenuItem();
+            show.Text = "显示窗体";
+            show.Index = 0;
+            show.Click += new EventHandler(MenuItemShow_Click);
+            menu.MenuItems.Add(show);
 
-            menu.MenuItems.Add(item);
+            MenuItem hide = new MenuItem();
+            hide.Text = "隐藏窗体";
+            hide.Index = 1;
+            hide.Click +=new EventHandler(MenuItemHide_Click);
+            menu.MenuItems.Add(hide);
+
+            MenuItem cancle = new MenuItem();
+            cancle.Text = "退出程序";
+            cancle.Index = 2;
+            cancle.Click += new EventHandler(MenuItemCancle_Click);
+            menu.MenuItems.Add(cancle);
+
             _NotifyIcon.ContextMenu = menu;
-
-
             _NotifyIcon.MouseDoubleClick += new MouseEventHandler(_NotifyIcon_MouseDoubleClick);
 
         }
 
-        static void _NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        public static IntPtr windowHandle = IntPtr.Zero;
+        static NotifyIcon _NotifyIcon = new NotifyIcon();
+
+        #region even
+        static void MenuItemShow_Click(object sender,EventArgs e)
         {
-            Console.WriteLine("托盘被双击.");
+            ShowWindow(1);
         }
 
-        #region 禁用关闭按钮
+        static void MenuItemHide_Click(object sender, EventArgs e)
+        {
+            ShowWindow(0);
+        }
+        static void MenuItemCancle_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("真的要关闭系统吗？", "提示", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Information);
+            if (dr ==DialogResult.Yes)
+            {
+                Application.Exit();
+                Environment.Exit(0);
+            }
+        }
+
+        static void _NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ShowWindow(1);
+        }
+
+        #endregion
+
+        #region win32
         [DllImport("User32.dll", EntryPoint = "FindWindow")]
         static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
         [DllImport("user32.dll", EntryPoint = "GetSystemMenu")]
         static extern IntPtr GetSystemMenu(IntPtr hWnd, IntPtr bRevert);
-
         [DllImport("user32.dll", EntryPoint = "RemoveMenu")]
         static extern IntPtr RemoveMenu(IntPtr hMenu, uint uPosition, uint uFlags);
         /// <summary>
@@ -49,16 +86,13 @@ namespace Win32Helper
         /// <returns></returns>
         [DllImport("User32.dll", EntryPoint = "ShowWindow")]
         static extern bool ShowWindow(IntPtr hWnd, int type);
-        /// <summary>
-        /// 禁用关闭按钮
-        /// </summary>
-        /// <param >控制台名字</param>
-        public static void DisableCloseButton(string title)
+        #endregion
+
+        public static void DisableCloseButton()
         {
             //线程睡眠，确保closebtn中能够正常FindWindow，否则有时会Find失败。。
             Thread.Sleep(100);
-
-            IntPtr windowHandle = FindWindow(null, title);
+            //IntPtr windowHandle = FindWindow(null, title);
             IntPtr closeMenu = GetSystemMenu(windowHandle, IntPtr.Zero);
             uint SC_CLOSE = 0xF060;
             RemoveMenu(closeMenu, SC_CLOSE, 0x0);
@@ -70,10 +104,6 @@ namespace Win32Helper
 
             return true;
         }
-        #endregion
-
-        #region 托盘图标
-        static NotifyIcon _NotifyIcon = new NotifyIcon();
         public static void ShowNotifyIcon()
         {
             _NotifyIcon.Visible = true;
@@ -83,11 +113,29 @@ namespace Win32Helper
         {
             _NotifyIcon.Visible = false;
         }
-        public static void ShowConsole(string title, int Type)
+        public static void ShowWindow(int type)
         {
-            IntPtr windowHandle = FindWindow(null, title);
-            ShowWindow(windowHandle, Type);
+            //IntPtr windowHandle = FindWindow(null, title);
+            ShowWindow(windowHandle, type);
         }
-        #endregion
+        public static void BindHandle(IntPtr handle)
+        {
+            windowHandle = handle;
+        }
+        public static void BindHandle(string title)
+        {
+            windowHandle = FindWindow(null, title);
+        }
+
+        public static void SetContextMenu(ContextMenu menu)
+        {
+            _NotifyIcon.ContextMenu = menu;
+
+        }
+
+        public static void SetIcon(Icon icon)
+        {
+            _NotifyIcon.Icon = icon;
+        }
     }
 }
