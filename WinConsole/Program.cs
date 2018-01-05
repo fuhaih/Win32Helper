@@ -12,10 +12,11 @@ namespace FHWinConsole
         static void Main(string[] args)
         {
             Console.Title = "TestConsoleLikeWin32";
-            FormHelper.BindHandle(Console.Title);
-            FormHelper.DisableCloseButton();
-            FormHelper.ShowNotifyIcon();
-            FormHelper.ShowWindow(0);
+            TrayHelper.BindHandle(Console.Title);
+            TrayHelper.DisableCloseButton();
+            TrayHelper.SetNotifyIconText(Console.Title);
+            TrayHelper.ShowNotifyIcon(3000, Console.Title, "我是托盘图标，用右键点击我试试，还可以双击看看。");
+            TrayHelper.ShowWindow(0);
             Console.WriteLine("test");
             while (true)
             {

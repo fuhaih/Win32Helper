@@ -19,8 +19,8 @@ namespace FHWindowsForms
 
         private void Main_Load(object sender, EventArgs e)
         {
-            FormHelper.BindHandle(this.Handle);
-            FormHelper.ShowNotifyIcon();
+            TrayHelper.BindHandle(this.Handle);
+            TrayHelper.ShowNotifyIcon(3000, "form测试", "我是托盘图标，用右键点击我试试，还可以双击看看。");
         }
 
         ~Main()
@@ -31,7 +31,7 @@ namespace FHWindowsForms
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             e.Cancel = true;
-            FormHelper.ShowWindow(0);
+            TrayHelper.ShowWindow(0);
         }
     }
 }

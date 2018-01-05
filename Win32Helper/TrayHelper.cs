@@ -9,13 +9,13 @@ namespace Win32Helper
     /// <summary>
     /// 可以考虑单例模式，一个程序只能开一个托盘
     /// </summary>
-    public class FormHelper
+    public class TrayHelper
     {
-        static FormHelper()
+        static TrayHelper()
         {
             _NotifyIcon.Icon = Win32Helper.ResourceIcon.Select;
             _NotifyIcon.Visible = false;
-            _NotifyIcon.Text = "tray";
+            //_NotifyIcon.Text = "tray";
 
             ContextMenu menu = new ContextMenu();
             MenuItem show = new MenuItem();
@@ -104,10 +104,10 @@ namespace Win32Helper
 
             return true;
         }
-        public static void ShowNotifyIcon()
+        public static void ShowNotifyIcon(int timeout,string title,string body)
         {
             _NotifyIcon.Visible = true;
-            _NotifyIcon.ShowBalloonTip(3000, "", "我是托盘图标，用右键点击我试试，还可以双击看看。", ToolTipIcon.None);
+            _NotifyIcon.ShowBalloonTip(timeout, title, body, ToolTipIcon.None);
         }
         public static void HideNotifyIcon()
         {
@@ -126,16 +126,18 @@ namespace Win32Helper
         {
             windowHandle = FindWindow(null, title);
         }
-
         public static void SetContextMenu(ContextMenu menu)
         {
             _NotifyIcon.ContextMenu = menu;
 
         }
-
-        public static void SetIcon(Icon icon)
+        public static void SetNotifyIcon(Icon icon)
         {
             _NotifyIcon.Icon = icon;
+        }
+        public static void SetNotifyIconText(string text)
+        {
+            _NotifyIcon.Text = text;
         }
     }
 }
