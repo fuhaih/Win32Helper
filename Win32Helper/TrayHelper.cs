@@ -4,39 +4,47 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Threading;
+using System.Reflection;
 namespace Win32Helper
 {
     /// <summary>
+    /// 托盘助手
     /// 可以考虑单例模式，一个程序只能开一个托盘
     /// </summary>
     public class TrayHelper
     {
+        private static Mutex mutex=null;
         static TrayHelper()
         {
             _NotifyIcon.Icon = Win32Helper.ResourceIcon.Select;
             _NotifyIcon.Visible = false;
             //_NotifyIcon.Text = "tray";
 
-            ContextMenu menu = new ContextMenu();
-            MenuItem show = new MenuItem();
+            ContextMenuStrip menu = new ContextMenuStrip();
+            ToolStripMenuItem show = new ToolStripMenuItem();
             show.Text = "显示窗体";
-            show.Index = 0;
+            show.Image = ResourceIcon.show;
+            //show.Index = 0;
             show.Click += new EventHandler(MenuItemShow_Click);
-            menu.MenuItems.Add(show);
+            menu.Items.Add(show);
 
-            MenuItem hide = new MenuItem();
+            ToolStripMenuItem hide = new ToolStripMenuItem();
             hide.Text = "隐藏窗体";
-            hide.Index = 1;
+            //hide.Index = 1;
+            hide.Image = ResourceIcon.hide;
+
             hide.Click +=new EventHandler(MenuItemHide_Click);
-            menu.MenuItems.Add(hide);
+            menu.Items.Add(hide);
 
-            MenuItem cancle = new MenuItem();
+            ToolStripMenuItem cancle = new ToolStripMenuItem();
             cancle.Text = "退出程序";
-            cancle.Index = 2;
-            cancle.Click += new EventHandler(MenuItemCancle_Click);
-            menu.MenuItems.Add(cancle);
+            cancle.Image = ResourceIcon.exit;
 
-            _NotifyIcon.ContextMenu = menu;
+            //cancle.Index = 2;
+            cancle.Click += new EventHandler(MenuItemCancle_Click);
+            menu.Items.Add(cancle);
+
+            _NotifyIcon.ContextMenuStrip = menu;
             _NotifyIcon.MouseDoubleClick += new MouseEventHandler(_NotifyIcon_MouseDoubleClick);
 
         }
@@ -117,6 +125,7 @@ namespace Win32Helper
         {
             //IntPtr windowHandle = FindWindow(null, title);
             ShowWindow(windowHandle, type);
+            Console.WriteLine(windowHandle);
         }
         public static void BindHandle(IntPtr handle)
         {
@@ -125,6 +134,8 @@ namespace Win32Helper
         public static void BindHandle(string title)
         {
             windowHandle = FindWindow(null, title);
+            Console.WriteLine(windowHandle);
+            Console.WriteLine(title);
         }
         public static void SetContextMenu(ContextMenu menu)
         {
@@ -138,6 +149,21 @@ namespace Win32Helper
         public static void SetNotifyIconText(string text)
         {
             _NotifyIcon.Text = text;
+        }
+        public static bool IsSingleCase(Assembly assem)
+        {
+            string ptitle = assem.GetName().Name;
+            foreach (Attribute attr in Attribute.GetCustomAttributes(assem))
+            {
+                if (attr.GetType() == typeof(AssemblyTitleAttribute))
+                {
+                    ptitle = ((AssemblyTitleAttribute)attr).Title;
+                    break;
+                }
+            }
+            bool canCreateNew = false;
+            mutex = new Mutex(true, @"Global\"+ptitle, out canCreateNew);
+            return canCreateNew;
         }
     }
 }

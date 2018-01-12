@@ -6,7 +6,6 @@ G:\Fuhai\GitWorkSpace\WinConsole\Win32Helper\obj\Debug\Win32Helper.dll
 G:\Fuhai\GitWorkSpace\WinConsole\Win32Helper\obj\Debug\Win32Helper.pdb
 G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\bin\Debug\Win32Helper.dll
 G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\bin\Debug\Win32Helper.pdb
-G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\obj\Debug\Win32Helper.csprojResolveAssemblyReference.cache
 G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\obj\Debug\Win32Helper.ResourceIcon.resources
 G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\obj\Debug\Win32Helper.csproj.GenerateResource.Cache
 G:\Fuhai\GitWorkSpace\Win32Helper\Win32Helper\obj\Debug\Win32Helper.dll
