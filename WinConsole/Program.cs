@@ -29,7 +29,6 @@ namespace FHWinConsole
             while (true)
             {
                 Application.DoEvents();//很重要，没有这个的话可能隐藏的图标点击没有效果
-                
             }
         }
 
